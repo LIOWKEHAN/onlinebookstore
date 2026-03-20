@@ -48,6 +48,18 @@
 					<warSourceDirectory>WebContent</warSourceDirectory>
 				</configuration>
 			</plugin>
+			<plugin>
+	            <artifactId>maven-surefire-plugin</artifactId>
+	            <version>3.2.5</version>
+	            <configuration>
+	                <includes>
+	                    <include>**/*Test.java</include>
+	                </includes>
+	                <systemPropertyVariables>
+	                    <baseUrl>${baseUrl}</baseUrl>
+	                </systemPropertyVariables>
+	            </configuration>
+	        </plugin>
 		</plugins>
 	</build>
 	<dependencies>
@@ -71,5 +83,40 @@
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.1.0</version>
 		</dependency>
+		
+		<dependency>
+	        <groupId>org.junit.jupiter</groupId>
+	        <artifactId>junit-jupiter</artifactId>
+	        <version>5.10.2</version>
+	        <scope>test</scope>
+	    </dependency>
+	
+	    <dependency>
+	        <groupId>org.seleniumhq.selenium</groupId>
+	        <artifactId>selenium-java</artifactId>
+	        <version>4.19.1</version>
+	        <scope>test</scope>
+	    </dependency>
+	    
+	    <dependency>
+		    <groupId>org.seleniumhq.selenium</groupId>
+		    <artifactId>selenium-edge-driver</artifactId>
+		    <version>4.19.1</version>
+		    <scope>test</scope>
+		</dependency>
+	
+	    <dependency>
+	        <groupId>io.github.bonigarcia</groupId>
+	        <artifactId>webdrivermanager</artifactId>
+	        <version>5.8.0</version>
+	        <scope>test</scope>
+	    </dependency>
+	    
 	</dependencies>
+	
+	<properties>
+	    <baseUrl>http://localhost:8080/onlinebookstore</baseUrl>
+	    <maven.compiler.source>1.8</maven.compiler.source>
+	    <maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
 </project>
